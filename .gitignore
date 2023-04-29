@@ -1,0 +1,5 @@
+/venv
+activate
+
+*.csv#
+/__pycache__
