@@ -1,6 +1,6 @@
-# Decision tree in backtesting
+# Machine learning in algotrading
 
-:hammer: Project is in early stage - don't expect fireworks :hammer:
+:hammer: **Project is in early stage - don't expect fireworks!!!** :hammer:
 
 ## :moneybag: Purpose
 It's quite easy to point, which moments were good to buy&sell but it's rather complicated to explain **why**. Is it because of market sentiment, social events or economic indicators? That's why I want to make model which explains, why some buys and sells should have been made. The same model might be used to predict future buy&sell signals.
@@ -9,7 +9,7 @@ The idea behind implementation is simple:
 1. Get data for market you are interested in (in csv format)
 2. Add columns with indicators/events which you find important
 3. Mark timestamps which are good for buy&sell (add numeric column `Buy/Sell` to candle data) with custom mapping (0 - SELL, 1 - NOTHING, 2 - BUY) - example in `data/btc/target/btc-usd_2018-04-23_2023-04-23_target`
-4. Pass extended data to decision tree algorithm and pray to God for good model.
+4. Pass extended data to ML algorithm (like decision tree) and pray to God for good model.
 
 Using it we should get some correlation between input features and their importance on decision making.
 Good candidates for parameters are:
@@ -45,9 +45,13 @@ Model generation takes place in `model.py` and it's called automatically from `b
 
 ### Run backtest
 
-Below command generates decision tree from training data and run backtest:
+Below command generates decision tree (maybe in future it will have more options) from training data and run backtest:
 ```shell
 python backtest.py -i data/btc/target/btc-usd_2018-04-23_2023-04-23_target.csv
+```
+if you are stuck, type to get help:
+```shell
+python backtest.py -h
 ```
 
 ## :construction: Contributing 
